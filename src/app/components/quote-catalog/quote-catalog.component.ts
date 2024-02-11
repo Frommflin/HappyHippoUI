@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class QuoteCatalogComponent {
   user: string = '';
   quotes: IQuoteId[] = [];
+  limitReached: boolean = false;
 
   constructor(private userService: UserService, private quoteService: QuoteService, private router: Router) { }
 
@@ -32,6 +33,12 @@ export class QuoteCatalogComponent {
     this.quoteService.getQuotes(this.user).subscribe({
       next: (response) => {
         this.quotes = response
+
+        if (response.length >= 5) {
+          this.limitReached = true
+        } else {
+          this.limitReached = false
+        }
       }
     })
   }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <h1>My Quotes</h1>
-  <a routerLink="/quotes/edit" id="new-quote" class="btn">
+  <h1>My top 5 Quotes</h1>
+  <a *ngIf="!limitReached" routerLink="/quotes/edit" id="new-quote" class="btn">
     <span class="fa-solid fa-quote-right fa-lg"></span>
     Add new Quote
   </a>
