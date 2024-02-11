@@ -1,0 +1,21 @@
+@use '../../../shared'
+@use 'sass:map'
+
+#new-book
+  margin-left: 5vw
+
+#book-window
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  position: relative
+
+@media (min-width: map.get(shared.$breakpoints, sm))
+  #new-book
+    margin-left: 1vw
+  #book-window
+    justify-content: flex-start
+
+@media (min-width: map.get(shared.$breakpoints, lg))
+  #new-book
+    margin-left: 0.5vw

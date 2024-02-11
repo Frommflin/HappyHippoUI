@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'shared'
+
+.hippo-card
+  border: 1px solid shared.$primary-dark
+  border-radius: 10px
+  display: flex
+  padding: 10px
+  margin: 10px
+  justify-content: space-between
+  height: fit-content
+  background-color: shared.$primary
+  color: shared.$white
+  box-shadow: rgba(0, 0, 0, 0.6) 5px 10px 20px, rgba(0, 0, 0, 0.3) 0px 10px 10px
+  .ed-buttons
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    row-gap: 5px
+
+.form-container
+  display: flex
+  justify-content: center
+
+.form
+  max-width: 600px
+
+form
+  button
+    margin-top: 10px
+  .input-group
+    margin-bottom: 3px
+  .form-control
+    border-color: shared.$primary-dark
+  .input-group-text
+    background-color: shared.$primary-dark
+    color: shared.$white
+    border-radius: 10px 0 0 10px
+
+.btn
+  color: white
+  background-color: shared.$primary
+  border-color: shared.$primary-dark
+  &:active
+      color: white
+      background-color: shared.$primary-dark
+      border-color: shared.$primary
+  &:focus
+      box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem shared.$primary-light
+  &:hover
+      color: shared.$primary-dark
+      background-color: shared.$primary-light
+      border-color: shared.$primary
+
+.validationError
+  color: shared.$error

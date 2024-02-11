@@ -1,0 +1,20 @@
+@use '../../../shared'
+@use 'sass:map'
+
+#homepage
+  margin-top: 20px
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  text-align: center
+  div
+    display: inline
+
+@media (min-width: map.get(shared.$breakpoints, xl))
+  #homepage
+    align-items: center
+  #hippo
+    margin-right: 10px
+  #message
+    max-width: 750px
+

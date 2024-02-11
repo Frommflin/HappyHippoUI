@@ -1,0 +1,15 @@
+<div class="book-card hippo-card">
+  <div class="book-info">
+    <h3>{{bookDetails.title}}</h3>
+    <div>{{bookDetails.author}}</div>
+    <div>Year of publication: {{bookDetails.year}}</div>
+  </div>
+  <div class="ed-buttons">
+    <a routerLink="/books/edit" [queryParams]="{id: bookDetails.id}" class="btn">
+      <span class="fa-solid fa-pen-to-square"></span>
+    </a>
+    <button (click)="deleteClicked()" class="btn">
+      <span class="fa-solid fa-trash-can"></span>
+    </button>
+  </div>
+</div>

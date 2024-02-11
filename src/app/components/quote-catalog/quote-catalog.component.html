@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <h1>My Quotes</h1>
+  <a routerLink="/quotes/edit" id="new-quote" class="btn">
+    <span class="fa-solid fa-quote-right fa-lg"></span>
+    Add new Quote
+  </a>
+  <div id="quote-window">
+    <hippo-quote *ngFor="let quote of quotes" [quoteDetails]="quote" (delete)="deleteQuote(quote)"></hippo-quote>
+  </div>
+</div>

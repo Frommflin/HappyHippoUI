@@ -1,0 +1,26 @@
+<div class="container">
+  <form #bookForm="ngForm" class="form">
+    <h1 *ngIf="newBook" >Add New Book</h1>
+    <h1 *ngIf="!newBook" >Edit Book</h1>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Book title</span>
+      </div>
+      <input name="title" [(ngModel)]="book.title" type="text" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Author(s)</span>
+      </div>
+      <input name="author" [(ngModel)]="book.author" type="text" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Year of publishing</span>
+      </div>
+      <input name="year" [(ngModel)]="book.year" type="number" min="0" max="2024" class="form-control" required>
+    </div>
+    <button class="btn" *ngIf="newBook" [disabled]="bookForm.form.invalid" (click)="addNewBook()">Save book</button>
+    <button class="btn" *ngIf="!newBook" (click)="editBook()">Save changes</button>
+  </form>
+</div>

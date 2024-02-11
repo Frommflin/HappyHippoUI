@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <span id="logo" class="nav-icon fa-solid fa-hippo fa-bounce fa-xl"></span>
+      Happy Hippo
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="!user">
+          <span class="nav-icon fa-solid fa-house"></span>
+          <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <span class="nav-icon fa-solid fa-book"></span>
+          <a routerLink="/books" routerLinkActive="active" class="nav-link">My Books</a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <span class="nav-icon fa-solid fa-quote-right"></span>
+          <a routerLink="/quotes" routerLinkActive="active" class="nav-link">My Quotes</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav" *ngIf="!user" >
+        <li class="nav-item">
+          <span class="nav-icon fa-solid fa-right-to-bracket"></span>
+          <a routerLink="/signin" routerLinkActive="active" class="nav-link" href="">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-icon fa-solid fa-user-plus"></span>
+          <a routerLink="/register" routerLinkActive="active" class="nav-link" href="">Register</a>
+        </li>>
+      </ul>
+      <ul class="navbar-nav" *ngIf="user">
+        <li class="nav-item">
+          <span class="nav-icon fa-solid fa-right-from-bracket"></span>
+          <a class="nav-link" (click)="signOut()">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

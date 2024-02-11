@@ -1,0 +1,20 @@
+<div class="container">
+  <form #quoteForm="ngForm" class="form">
+    <h1 *ngIf="newQuote">Add New Quote</h1>
+    <h1 *ngIf="!newQuote">Edit Quote</h1>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Quote</span>
+      </div>
+      <input name="quoteText" [(ngModel)]="quote.quoteText" type="text" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Coined By</span>
+      </div>
+      <input name="author" [(ngModel)]="quote.author" type="text" class="form-control" required>
+    </div>
+    <button class="btn" *ngIf="newQuote" [disabled]="quoteForm.form.invalid" (click)="addNewQuote()">Save quote</button>
+    <button class="btn" *ngIf="!newQuote" (click)="editQuote()" >Save changes</button>
+  </form>
+</div>

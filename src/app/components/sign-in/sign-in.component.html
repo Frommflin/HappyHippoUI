@@ -1,0 +1,21 @@
+<div class="container form-container">
+  <form (ngSubmit)="signIn()">
+    <h1>Sign in</h1>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Username</span>
+      </div>
+      <input name="username" [(ngModel)]="credentials.username" type="text" placeholder="Enter Username" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Password</span>
+      </div>
+      <input name="password" [(ngModel)]="credentials.password" type="password" placeholder="Enter Password" class="form-control" required>
+    </div>
+    <div *ngIf="signinerror" class="validationError">
+      Sign-in failed. Check your credentials and try again.
+    </div>
+    <button class="btn"> Sign In </button>
+  </form>
+</div>

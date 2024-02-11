@@ -1,0 +1,35 @@
+<div class="container form-container">
+  <form #registerForm="ngForm" (ngSubmit)="createAccount()" >
+    <h1>Create a new account</h1>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Username</span>
+      </div>
+      <input name="username" #email="ngModel" [(ngModel)]="username" type="text" minlength="3" maxlength="20" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Password</span>
+      </div>
+      <input name="password" #password1="ngModel" [(ngModel)]="password" type="password" minlength="6" class="form-control" required>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Confirm password</span>
+      </div>
+      <input name="confirmPassword" #password2="ngModel" [(ngModel)]="confirmPassword" type="password" minlength="6" class="form-control" required>
+    </div>
+    <ul class="validationError">
+      <li *ngIf="email.touched && email.invalid">
+         Username has to be between 3 and 20 characters long.
+      </li>
+      <li *ngIf="password1.touched && password1.invalid">
+        Password must be at least 6 characters.
+      </li>
+      <li *ngIf="password2.touched && password2.value != password1.value">
+        Passwords doesn't match
+      </li>
+    </ul>
+    <button type="submit" [disabled]="registerForm.form.invalid || password2.value != password1.value" class="btn"> Create &amp; Sign In </button>
+  </form>
+</div>
