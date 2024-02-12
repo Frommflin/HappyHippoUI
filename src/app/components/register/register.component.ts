@@ -21,12 +21,7 @@ export class RegisterComponent {
 
     this.userService.createUser(this.credentials).subscribe({
       next: (response) => {
-        this.userService.signIn(response).subscribe({
-          next: (userresponse) => {
-            localStorage.setItem('authToken', userresponse.token);
-            this.router.navigate(['/books'])
-          }
-        })
+        this.router.navigate(['/signin'])
       }
     });
   }
