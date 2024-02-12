@@ -13,7 +13,7 @@ export class UserService {
     this.user = new BehaviorSubject<string | null>(null);
   }
 
-  baseUrl: string = "https://happyhippoapi.onrender.com/happyhippouser";
+  baseUrl: string = "https://happyhippoapi.onrender.com/happyhippoquotes";
 
   getUser(): Observable<string | null> {
     return this.user;
@@ -31,11 +31,7 @@ export class UserService {
     this.user.next(null);
   }
 
-  createUser(credentials: IUser): Observable<IUserToken> {
-    return this.http.post<IUserToken>(this.baseUrl + '/register', credentials)
-      .pipe(map((response: IUserToken) => {
-        this.user.next(response.username);
-        return response;
-      }));
+  createUser(credentials: IUser): Observable<IUser> {
+    return this.http.post<IUser>(this.baseUrl + '/register', credentials);
   }
 }
