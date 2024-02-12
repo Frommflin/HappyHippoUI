@@ -13,7 +13,7 @@ export class UserService {
     this.user = new BehaviorSubject<string | null>(null);
   }
 
-  baseUrl: string = "https://happyhippoapi.onrender.com/happyhippoquotes";
+  baseUrl: string = "https://happyhippoapi.onrender.com/happyhippouser";
 
   getUser(): Observable<string | null> {
     return this.user;
